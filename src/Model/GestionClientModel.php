@@ -18,10 +18,17 @@ class GestionClientModel
 {
   public function find(int $id) : Client{
     $unObjetPdo = Connexion::getConnexion();
-    $sql = "selet * from CLIENT where id=:id";
+    $sql = "select * from CLIENT where id=:id";
     $ligne = $unObjetPdo->prepare($sql);
-    $ligne->BindValue('id', $id, PDO::PARAM_INT);
+    $ligne->bindValue('id', $id, PDO::PARAM_INT);
     $ligne->execute();
     return $ligne->fetchObject(Client::class);
+  }
+  
+  public function findAll(){
+    $unObjetPdo = Connexion::getConnexion();
+    $sql = "Select * from CLIENT";
+    $lignes = $unObjetPdo->query($sql);
+    return $lignes->fetchAll(PDO::FETCH_CLASS, Client::class);
   }
 }

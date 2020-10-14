@@ -9,6 +9,7 @@ namespace APP\Controller;
 use APP\Model\GestionClientModel;
 use ReflectionClass;
 use Exception;
+
 /**
  * Description of GestionClientController
  *
@@ -16,17 +17,31 @@ use Exception;
  */
 class GestionClientController
 {
- 
-  public function chercheUn(array $params) : void{
+
+  public function chercheUn(array $params): void
+  {
     // appel de la méthode find($id) de la classe Model adequate 
     $model = new GestionClientModel();
     $id = filter_var(intval($params['id']), FILTER_VALIDATE_INT);
     $unClient = $model->find($id);
-    if($unClient){
+    if ($unClient) {
       $r = new ReflectionClass($this);
       include_once PATH_VIEW . str_replace('Controller', 'View', $r->getShortName()) . "/unClient.php";
     } else {
       throw new Exception("Client" . $id . " inconnu");
+    }
+  }
+
+  public function chercheTous()
+  {
+    // appel de la méthode findAll() de la classe Model adequate
+    $model = new GestionClientModel();
+    $clients = $model->FindAll();
+    if ($clients) {
+      $r = new ReflectionClass($this);
+      include_once PATH_VIEW . str_replace('Controller', 'View', $r->getShortName()) . "/plusieursClients.php";
+    } else {
+      throw new Exception("Aucun client à afficher");
     }
   }
 }
