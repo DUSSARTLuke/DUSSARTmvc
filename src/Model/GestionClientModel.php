@@ -4,7 +4,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-namespace APP\Model; 
+namespace APP\Model;
+
+use \PDO;
+use APP\Entity\Client;
+use Tools\Connexion;
 /**
  * Description of GestionClientModel
  *
@@ -12,5 +16,12 @@ namespace APP\Model;
  */
 class GestionClientModel
 {
-  //put your code here
+  public function find(int $id) : Client{
+    $unObjetPdo = Connexion::getConnexion();
+    $sql = "selet * from CLIENT where id=:id";
+    $ligne = $unObjetPdo->prepare($sql);
+    $ligne->BindValue('id', $id, PDO::PARAM_INT);
+    $ligne->execute();
+    return $ligne->fetchObject(Client::class);
+  }
 }
