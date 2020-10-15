@@ -44,4 +44,5 @@ class GestionClientController
       throw new Exception("Aucun client à afficher");
     }
   }
+  
 }
