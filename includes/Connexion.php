@@ -5,6 +5,9 @@
  * and open the template in the editor.
  */
 namespace Tools;
+
+use PDO;
+
 /**
  * Description of Connexion
  *

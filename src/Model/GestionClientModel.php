@@ -6,7 +6,7 @@
  */
 namespace APP\Model;
 
-use \PDO;
+use PDO;
 use APP\Entity\Client;
 use Tools\Connexion;
 /**
