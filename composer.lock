@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d1b51ba5f9cd5fed3b94c8b4b1011d5",
+    "content-hash": "9c6574e439930baf5fa7c87468705974",
     "packages": [
         {
             "name": "symfony/polyfill-ctype",
@@ -219,6 +219,10 @@
             "keywords": [
                 "templating"
             ],
+            "support": {
+                "issues": "https://github.com/twigphp/Twig/issues",
+                "source": "https://github.com/twigphp/Twig/tree/v3.0.5"
+            },
             "funding": [
                 {
                     "url": "https://github.com/fabpot",
@@ -240,5 +244,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
