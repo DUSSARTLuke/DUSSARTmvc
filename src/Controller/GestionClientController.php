@@ -47,4 +47,15 @@ class GestionClientController
     }
   }
   
+  public function creerClient(arrar $params){
+    $vue = "GestionClientView\\creerClient.html.twig";
+    MyTwig::afficheVue($vue, array());
+  }
+  
+  public function enregistreClient(array $params){
+    // creation de l'objet Client
+    $client = new Client($params);
+    $modele = new GestionClientModel();
+    $modele->enregistreClient($client);
+  }
 }
